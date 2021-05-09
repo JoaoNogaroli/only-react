@@ -18,7 +18,7 @@ function App() {
   
 
   useEffect(() => {
-    fetch("/resultado").then(response => {
+    fetch("https://api-only-react.herokuapp.com/resultado").then(response => {
       response.json().then(data => {
         //console.log("------data_-------")
         //console.log(data)
@@ -29,7 +29,7 @@ function App() {
   }, []);
 
   useEffect(() => {
-    fetch("/receber").then(response => {
+    fetch("https://api-only-react.herokuapp.com/receber").then(response => {
         response.json().then(data => {
           //console.log("------data_-------")
           //console.log(data)

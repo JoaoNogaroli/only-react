@@ -69,7 +69,7 @@ export const ContaForm = ({onNewTeste, onNewConta}) => {
                     const conta_total = {
                         '0':radio,
                         '1':valor};
-                    const response = await fetch('/enviar', {
+                    const response = await fetch('https://api-only-react.herokuapp.com/enviar', {
                         method:'POST',
                         headers:{
                             "content_type":"application/json",
@@ -77,7 +77,7 @@ export const ContaForm = ({onNewTeste, onNewConta}) => {
                         body: JSON.stringify(conta_total)
                     })
 
-                    const teste = await fetch('/resultado', {
+                    const teste = await fetch('https://api-only-react.herokuapp.com/resultado', {
                         method:'POST',
                         headers:{
                             "content_type":"application/json",

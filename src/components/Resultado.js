@@ -8,7 +8,7 @@ export const Resultado = () => {
         async () => {
             
             
-            const response = await fetch('/resultado', {
+            const response = await fetch('https://api-only-react.herokuapp.com/resultado', {
                 method:'POST',
                 headers:{
                     "content_type":"application/json",
