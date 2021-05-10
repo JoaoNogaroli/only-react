@@ -1,9 +1,14 @@
 import React, {useState} from 'react';
 import { Form, Input, Button} from 'semantic-ui-react';
+
 export const ContaForm = ({onNewTeste, onNewConta}) => {
+
     const [valor, setValor] = useState('');
 
     const [radio, setRadio] = useState();
+
+
+
     const styles = {
         
         fontFamily: "KIONA",
@@ -90,6 +95,7 @@ export const ContaForm = ({onNewTeste, onNewConta}) => {
                             console.log("----FINAL")
                             console.log(final)
                             onNewTeste(final);
+
                         });
                     }); 
 
@@ -110,3 +116,4 @@ export const ContaForm = ({onNewTeste, onNewConta}) => {
       
     )
 }
+
