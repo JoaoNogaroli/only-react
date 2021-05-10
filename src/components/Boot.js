@@ -1,6 +1,9 @@
 import React, { useEffect, useState} from 'react';
 import {Button, Form} from 'semantic-ui-react';
 
+
+import {download} from 'downloadjs';
+
 export const Boot = () => {
     const [teste, setTeste] = useState('0');
     const [anterior, setAnterior] = useState('0');
@@ -83,7 +86,8 @@ export const Boot = () => {
                 type="valor" name="valor" placeholder="Valor da Conta" /></div>
                 
                 <div class="form-group">
-               
+                <br />
+
                 <Button
                  className="btn btn-primary btn-block" 
                  onClick={async () =>{
@@ -119,6 +123,10 @@ export const Boot = () => {
                     }); 
                     setValor('');
                  }}>Enviar</Button>
+                <br />
+                
+               
+                    <a href="http://127.0.0.1:8000/create_file/" method='POST' class="btn btn-primary btn-block">Pegue o Arquivo</a>
                  </div>
             </Form>
         </div>
