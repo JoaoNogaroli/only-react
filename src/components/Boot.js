@@ -77,7 +77,7 @@ export const Boot = () => {
                 
                 <div class="form-check"><input type="radio" class="form-check-input" 
                 onChange={(e) => {setRadio(e.target.value)}}
-                value="Saída" name='tipo' id="formCheck-2" />
+                value="Saida" name='tipo' id="formCheck-2" />
                 <label class="form-check-label" for="formCheck-2">Saída</label>
                 </div>
         
