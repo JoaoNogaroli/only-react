@@ -3,23 +3,33 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import {Contas} from './components/Contas';
 import {ContaForm} from './components/ContaForm';
 import {Boot} from './components/Boot';
+import Nav from './components/Nav';
+
+// ROUTERS
+import { BrowserRouter as Router, Route, Switch , Link, Redirect } from "react-router-dom";
+
+//PAGES
+import NotFoundPage from "./pages/404";
+import Sobrepag from "./pages/sobre";
 
 function App() {
   
   const [contas, setContas] = useState([]);
   const [resul, setResul] = useState([]);
   const [teste, setTeste] = useState('0');
-  /*
-  useEffect(() => {
-    fetch("/deletar").then(response => {
-      console.log(response)
-    })
-  })
-  */
+
+  const url_resultado_dev = "http://127.0.0.1:8000/resultado";
+  const url_resultado_prod = "https://api-only-react.herokuapp.com/resultado";
+
+  const url_enviar_dev = "http://127.0.0.1:8000/enviar";
+  const url_enviar_prod = "https://api-only-react.herokuapp.com/enviar";
   
+  const url_receber_dev = "http://127.0.0.1:8000/receber";
+  const url_receber_prod = "https://api-only-react.herokuapp.com/receber";
+
 
   useEffect(() => {
-    fetch("https://api-only-react.herokuapp.com/resultado").then(response => {
+    fetch(url_resultado_prod).then(response => {
       response.json().then(data => {
         //console.log("------data_-------")
         //console.log(data)
@@ -30,7 +40,7 @@ function App() {
   }, []);
 
   useEffect(() => {
-    fetch("https://api-only-react.herokuapp.com/receber").then(response => {
+    fetch(url_receber_prod).then(response => {
         response.json().then(data => {
           //console.log("------data_-------")
           //console.log(data)
@@ -48,18 +58,16 @@ function App() {
   })*/
 
   return (
-   
-      <div className='container shadow-sm p-3 mb-5 bg-white rounded' >
-        
-        
-            <div class="container">
-            <Boot />
-            
-            </div>
-           
-      </div>
-    
-      
+    <div>
+      <Router>
+        <Switch>
+          <Route exact path="/" component={Boot}/>
+          <Route exact path="/sobre" component={Sobrepag}/>
+          <Route exact path="/404" component={NotFoundPage}/>
+          <Redirect to="/404"/>
+        </Switch>
+      </Router>
+    </div>    
       
   );
 }
